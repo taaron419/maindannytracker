@@ -1,0 +1,202 @@
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.cards h3 {
+  margin-bottom: 15px; /* space between title and image */
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+
+/* --- Smooth continuous sliding without blank gap --- */
+@keyframes slide {
+  0%   { transform: translateX(0); }
+  25%  { transform: translateX(0); }
+  35%  { transform: translateX(-100%); }
+  60%  { transform: translateX(-100%); }
+  70%  { transform: translateX(-200%); }
+  95%  { transform: translateX(-200%); }
+  100% { transform: translateX(0); }
+}
+
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
+  border-radius: 8px; /* makes edges slightly rounded */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* soft blur around edges */
+}
+
+.logo h1 {
+  font-size: 20px;
+}
+
+
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+  color: #fff;
+  position: relative;
+  background: url("indexhero.jpg") no-repeat center center/cover;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5); /* dark overlay */
+}
+
+.hero h1,
+.hero p,
+.hero .btn {
+  position: relative;
+  z-index: 1;
+}
+
+
+
+/* Reset basics */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* font-family: Arial, sans-serif;*/
+  line-height: 1.6;
+  background: #f9f9f9;
+  color: #333;
+}
+
+/* Header */
+header {
+  background: #222;
+  color: #fff;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  align-items: center;
+
+}
+
+header .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+header nav a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+header nav a:hover {
+  color: #ff9800;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  /* background: linear-gradient(to right, #ff9800, #f57c00); */
+  color: #fff;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+}
+
+.btn {
+  display: inline-block;
+  background: #fff;
+  color: #f57c00;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #fbe9e7;
+}
+
+/* Services */
+.services {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.services h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Footer */
+footer {
+  background: #222;
+  color: #ccc;
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+}
+.social-icons a {
+  color: #fff;
+  margin: 0 10px;
+  text-decoration: none;
+  font-size: 20px;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #1da1f2; /* Changes color on hover (e.g., Twitter blue) */
+}

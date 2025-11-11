@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <title>Contact Danny Tracker | Get in Touch for Reliable GPS Tracking Services</title>
+  <link rel="stylesheet" href="contact.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">
+  <img src="headerlogo.jpg" alt="Danny Tracker Logo">
+  <h1>DANNY TRACKER</h1>
+</div>
+
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Contact Us</h1>
+    <p>Get in touch with Danny Tracker for GPS installation and support.</p>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section class="contact">
+    <h2>We’d love to hear from you</h2>
+    <form id="contactForm" method="post">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+      </div>
+
+      <button type="submit" class="btn-submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+ <footer>
+    <p>© 2025 Danny Tracker. All Rights Reserved.</p>
+<div class="social-icons">
+            <a href="https://facebook.com/Danny Tracker" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com/dannytrackerr" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com/dannytrackerr" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://tiktok.com/danny.trackergh" target="_blank"><i class="fab fa-tiktok"></i></a>
+</div>
+        <p>Contact Us -</p>
+        <p></p>
+        <div class="social-icons">
+            <!-- Phone numbers -->
+            <a href="tel:0257484159"> 0257484159</a>
+            <a href="tel:0532964212"> 0532964212</a>
+            <!-- Gmail -->
+            <a href="mailto:dannytracker114@gmail.com"> dannytracker114@gmail.com</a>
+          </div> 
+  </footer>
+
+ <script>
+document.getElementById("contactForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const formData = {
+    name: document.getElementById("name").value,
+    email: document.getElementById("email").value,
+    phone: document.getElementById("phone").value,
+    message: document.getElementById("message").value
+  };
+
+  try {
+    const response = await fetch("http://localhost:3000/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData)
+    });
+
+    if (response.ok) {
+      // Redirect to success page
+      window.location.href = "success.html";
+    } else {
+      console.error("Error submitting form:", await response.text());
+      alert("❌ Something went wrong. Please try again.");
+    }
+  } catch (error) {
+    console.error("Network error:", error);
+    alert("⚠️ Could not connect to the server.");
+  }
+});
+
+ document.querySelector("#contactForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const formData = {
+      name: e.target.name.value,
+      email: e.target.email.value,
+      phone: e.target.phone.value,
+      message: e.target.message.value,
+    };
+
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+  });
+
+</script>
+
+
+</body>
+</html>
